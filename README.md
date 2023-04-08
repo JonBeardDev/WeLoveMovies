@@ -2,6 +2,7 @@
 ## Express/Knex JavaScript for handling back-end requests for movies, theaters, and reviews on WeLoveMovies project
 
 [Link to deployed back-end on Render](https://welovemovies-ioz9.onrender.com/)
+[Link to deployed static site on Render](https://welovemovies-t7m2.onrender.com/)
 
 ## Available Requests
 
