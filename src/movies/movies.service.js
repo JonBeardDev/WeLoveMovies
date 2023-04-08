@@ -10,19 +10,22 @@ const addCritic = reduceProperties("review_id", {
 
 // Return all movies (limit information to selected columns)
 async function list() {
-  return knex("movies").select(
+  // Note: Below format was indicated by Qualified instructions, however for frontend to work, all columns are required.
+  /*return knex("movies").select(
     "movie_id as id",
     "title",
     "runtime_in_minutes",
     "rating",
     "description",
     "image_url"
-  );
+    );*/
+  return knex("movies").select("*");
 }
 
 // Return each movie one time only if the "is_showing" field in the movies_theaters table is true for at least one theater
 async function listIsShowing() {
-  return knex("movies as m")
+  // Note: Below format was indicated by Qualified instructions, however for frontend to work, all columns are required.
+  /*return knex("movies as m")
     .join("movies_theaters as mt", "m.movie_id", "mt.movie_id")
     .select(
       "m.movie_id as id",
@@ -32,6 +35,11 @@ async function listIsShowing() {
       "m.description",
       "m.image_url"
     )
+    .where("mt.is_showing", true)
+    .distinct();*/
+  return knex("movies as m")
+    .join("movies_theaters as mt", "m.movie_id", "mt.movie_id")
+    .select("m.*")
     .where("mt.is_showing", true)
     .distinct();
 }
